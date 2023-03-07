@@ -1,16 +1,11 @@
 import React from "react"
-import ReactDOM from "react-dom/client"
-import { act } from "react-dom/test-utils";
 import { Appointment } from "../src/Appointment"
+import { render, initializeReactContainer} from './reactTestExtensions'
 
 describe('Appointment', () => {
-  let container
+
   beforeEach(() => {
-    container = document.createElement('div')
-    document.body.replaceChildren(container)
-  })
-  const render = component => act(() => {
-    ReactDOM.createRoot(container).render(component)
+    initializeReactContainer()
   })
 
   it('renders the customer first name', () => {
