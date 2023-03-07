@@ -33,18 +33,18 @@ describe('AppointmentDayView', () => {
   it('renders the time of each appointment', () => {
     render(<AppointmentDayView appointments={twoAppointments} />)
     const children = document.body.querySelectorAll('li')
-    expect(children[0].textContent).toContain('12:00')
-    expect(children[1].textContent).toContain('13:00')
+    expect(children[0]).toContainText('12:00')
+    expect(children[1]).toContainText('13:00')
   })
 
   it('initially shows a message saying there are no appointments today', () => {
     render(<AppointmentDayView appointments={[]} />)
-    expect(document.body.textContent).toContain('There are no appointments scheduled for today.')
+    expect(document.body).toContainText('There are no appointments scheduled for today.')
   })
 
   it('selects the first appointment by default', () => {
     render(<AppointmentDayView appointments={twoAppointments} />)
-    expect(document.body.textContent).toContain('Ashley')
+    expect(document.body).toContainText('Ashley')
   })
 
   it('has a button element in each li', () => {
@@ -58,7 +58,7 @@ describe('AppointmentDayView', () => {
     render(<AppointmentDayView appointments={twoAppointments} />)
     const button = document.body.querySelectorAll('button')[1]
     click(button)
-    expect(document.body.textContent).toContain('Jordan')
+    expect(document.body).toContainText('Jordan')
   })
 
 })
